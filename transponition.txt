@@ -1,0 +1,24 @@
+void transpon(float**& matrix, int& rowsmatrix, int& colsmatrix)
+{
+	float** transpon_matrix = init_rand_matrix(colsmatrix, rowsmatrix);
+	for (int i = 0; i < colsmatrix; i++)
+	{
+		for (int j = 0; j < rowsmatrix; j++)
+		{
+			transpon_matrix[i][j] = matrix[j][i];
+		}
+	}
+	del(matrix, rowsmatrix);
+	matrix = init_rand_matrix(colsmatrix, rowsmatrix);
+	for (int i = 0; i < colsmatrix; i++)
+	{
+		for (int j = 0; j < rowsmatrix; j++)
+		{
+			matrix[i][j] = transpon_matrix[i][j];
+		}
+	}
+	del(transpon_matrix, colsmatrix);
+	int swap = colsmatrix; 
+	colsmatrix = rowsmatrix;
+	rowsmatrix = swap;
+}
